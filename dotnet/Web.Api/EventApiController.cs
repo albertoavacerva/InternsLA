@@ -69,6 +69,41 @@ namespace Sabio.Web.Api.Controllers
             return StatusCode(code, response);
 
         }
+
+        [HttpGet("search")]
+        public ActionResult<ItemResponse<Paged<Event>>> Search(string search, int pageIndex, int pageSize)
+        {
+            int code = 200;
+            BaseResponse response = null;
+
+            try
+            {
+                Paged<Event> data = _service.Search(search, pageIndex, pageSize);
+
+                if (data == null)
+                {
+                    code = 404;
+                    response = new ErrorResponse("Resource not found.");
+
+                }
+                else
+                {
+                    response = new ItemResponse<Paged<Event>> { Item = data };
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+
+                code = 500;
+                response = new ErrorResponse(ex.Message);
+                base.Logger.LogError(ex.ToString());
+            }
+
+            return StatusCode(code, response);
+
+        }
         [HttpGet("createdBy/{userId:int}")]
         public ActionResult<ItemsResponse<Event>> CreatedBy(int userId)
         {
@@ -226,6 +261,31 @@ namespace Sabio.Web.Api.Controllers
 
         }
 
+        [HttpPut("status/{id:int}")]
+        public ActionResult<SuccessResponse> Update(UpdateStatusRequest model)
+        {
+            int code = 200;
+            BaseResponse response = null;
+
+            try
+            {
+                int userId = _authService.GetCurrentUserId();
+                _service.UpdateStatus(model, userId);
+
+                response = new SuccessResponse();
+
+            }
+            catch (Exception ex)
+            {
+                code = 500;
+                response = new ErrorResponse($"Generic Errors: { ex.Message}");
+                base.Logger.LogError(ex.ToString());
+            }
+
+            return StatusCode(code, response);
+
+        }
+
         [HttpPut("{id:int}")]
         public ActionResult<SuccessResponse> Update(EventUpdateMultiStep model)
         {
@@ -250,8 +310,8 @@ namespace Sabio.Web.Api.Controllers
             return StatusCode(code, response);
 
         }
- 
 
-       
+
+
     }
 }
