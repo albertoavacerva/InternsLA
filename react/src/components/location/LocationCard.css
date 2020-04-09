@@ -1,0 +1,32 @@
+.maincard img {
+    flex-shrink: 0;
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    border-top-left-radius: 0.65rem;
+    border-top-right-radius: 0.65rem;
+}
+
+.maincard {
+    box-shadow: 0 0.46875rem 2.1875rem rgba(59, 62, 102, 0.03),
+        0 0.9375rem 1.40625rem rgba(59, 62, 102, 0.03),
+        0 0.25rem 0.53125rem rgba(59, 62, 102, 0.05),
+        0 0.125rem 0.1875rem rgba(59, 62, 102, 0.03);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(122, 123, 151, 0.3);
+    border-radius: 0.65rem;
+}
+
+.btn-edit {
+    color: rgb(84, 158, 200);
+}
+
+.btn-delete {
+    color: rgb(221, 107, 107);
+}

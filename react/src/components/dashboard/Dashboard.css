@@ -1,0 +1,57 @@
+.card2-body {
+  height: 250px;
+  width: 100%;
+  padding: 0px;
+  position: relative;
+}
+.flot-base {
+  width: 777;
+  height: 250;
+  direction: "ltr";
+  position: "absolute";
+  left: "0px";
+  top: "0px";
+  width: "777.25px";
+  height: "250px";
+}
+.flot-text {
+  position: "absolute";
+  top: "0px";
+  left: "0px";
+  bottom: "0px";
+  right: "0px";
+  font-size: "smaller";
+  color: "rgb(84, 84, 84)";
+}
+.flot-x-axis {
+  position: "absolute";
+  top: "0px";
+  left: "0px";
+  bottom: "0px";
+  right: "0px";
+}
+
+.card-box {
+  border-width: 3px;
+  box-shadow: 0 0.46875rem 2.1875rem rgba(59, 62, 102, 0.03),
+    0 0.9375rem 1.40625rem rgba(59, 62, 102, 0.03),
+    0 0.25rem 0.53125rem rgba(59, 62, 102, 0.05),
+    0 0.125rem 0.1875rem rgba(59, 62, 102, 0.03);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: hsl(0, 0%, 100%);
+  background-clip: border-box;
+  border: 0 solid hsla(238, 12%, 54%, 0.3);
+  border-radius: 0.65rem;
+}
+
+.imgDashboard {
+  height: 120px;
+  width: 120px;
+}
